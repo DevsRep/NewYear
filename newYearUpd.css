@@ -412,7 +412,7 @@ body{
     }
     
     .time{
-        font-size: calc(30px + 3vw);
+        font-size: calc(23px + 2.5vw);
     }
 
     /* .clock{ */
