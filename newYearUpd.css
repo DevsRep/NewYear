@@ -36,6 +36,16 @@ body{
     align-items: center;
 }
 
+.create-your-own-cont{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    z-index: 100000;
+}
+
+.output-cont{
+    display: none;
+}
 
 .newYear{
     height: 100vh;
@@ -162,9 +172,17 @@ body{
 
 @keyframes slideRight {
     from{
-        margin-right: 200vw;
+        margin-left: -200vw;
     }to{
-        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+@keyframes slideBottom {
+    from{
+        margin-top: -250vw;
+    }to{
+        margin-top: 0;
     }
 }
 
@@ -182,13 +200,12 @@ body{
     inset: 0;
     opacity: 1;
     background-color: #fff;
-    animation: fadeOut 1s linear 12s forwards;
+    animation: fadeOut 1s linear 14s forwards;
 }
 
 .slide{
     height: 100vh;
     width: 100vw;
-    margin-left: 100vw;
     position: absolute;
     background-color: aliceblue;
     z-index: 2000;
@@ -197,21 +214,26 @@ body{
     font-family: Anton;
     color: #fff;
     font-size: calc(10px + 2vw);
+
 }
 
 .one{
+    margin-left: 100vw;
     background-color: #552586;
-    animation: slideLeft 1.3s linear 1s forwards;
+    animation: slideLeft 2s linear 1s forwards;
 }
 
 .two{
     background-color:#804FB3;
-    animation: slideLeft 1.3s linear 4s forwards;
+    margin-left: -200vw;
+    /* left: -50vw; */
+    animation: slideRight 2s linear 4s forwards;
 }
 
 .three{
     background-color: #B589D6;
-    animation: slideLeft 1.3s linear 8s forwards;
+    margin-top: -250vw;
+    animation: slideBottom 3s linear 6s forwards;
 }
 
 
@@ -410,9 +432,26 @@ body{
         top:calc(65px + 1vw);
         font-size: 5vw;
     }
+
+    .animations{
+        animation: fadeOut 1s linear 12s forwards;
+    }
+
+
+    .one{
+        animation: slideLeft 1.3s linear 1s forwards;
+    }
+
+    .two{
+        animation: slideRight 1.3s linear 4s forwards;
+    }
+
+    .three{
+        animation: slideBottom 1.3s linear 8s forwards;
+    }
     
     .time{
-        font-size: calc(23px + 2.5vw);
+        font-size: calc(30px + 2.5vw);
     }
 
     /* .clock{ */

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Unbounded">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+    <link rel="stylesheet" href="newYearUpd.css">
+    <link rel="icon" href="2026NY.png">
+    <title>Create New Year Card</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .form-cont{
+            display: grid;
+            height: 100vh;
+            width: 100vw;
+            place-items: center;
+        }
+
+        .card-form{
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px 30px;
+            font-family: Unbounded;
+        }
+        input{
+            margin-top: 10px;
+            border-radius: 10px;
+            width: calc(100% - 20px);
+            padding: 6px 10px;
+        }
+
+        button{
+            width: 100%;
+            padding: 6px 0;
+            margin-top: 10px;
+            border-radius: 10px;
+            background-color: #B589D6;
+            border: none;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="create-your-own-cont">
+        <a href="index.html">Back to main page</a>
+    </div>
+
+
+    <div class="main">
+        <div class="form-cont">
+            <div class="card-form">
+                <h3>Enter your name:</h3>
+                <input type="text" name="username" maxlength="20" id="usernameInput" placeholder="Enter your name... (Min 3 letters)" minlength="3">
+                <button onclick="generateLink()">Submit</button>
+            
+                <div class="output-cont">
+                <input type="text" disabled="true" id="output">
+                <button onclick="copyNewUrl()">Copy</button>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        let GENERATED_URL
+
+        function generateLink(){
+            const username = document.getElementById('usernameInput').value
+            const outputForm = document.getElementById("output")
+            if(username.length > 2){
+                const url = window.location.hostname
+                const newURL = `${url}?name=${username}`
+                GENERATED_URL = newURL
+                // console.log(newURL)
+                outputForm.value=newURL
+                document.querySelector(".output-cont").style.display="block"
+            }else{
+                document.querySelector(".output-cont").style.display="none"
+                alert("Make sure your input is valid!")
+            }
+
+        }
+
+        function copyNewUrl(){
+            console.log(GENERATED_URL)
+            navigator.clipboard.writeText(GENERATED_URL)
+        }
+
+    </script>
+    
+</body>
+</html>

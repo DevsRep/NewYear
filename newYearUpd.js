@@ -5,12 +5,17 @@ const secHand = document.querySelector(".sec")
 const timerto2025 = document.querySelector(".timer-o-cont")
 const mainNY = document.querySelector(".newYear")
 
+let USER_NAME = "";
 
 function getNameFromUrl(){
     const queryString = window.location.search
     const urlParam = new URLSearchParams(queryString)
-    if(urlParam.get("name")){
-        console.log(urlParam.get("name"))
+    USER_NAME = urlParam.get("name")
+    if(USER_NAME){
+        document.title = "New Year wishes from " + USER_NAME
+        console.log(USER_NAME)
+        USER_NAME = USER_NAME.toUpperCase()
+        document.getElementById("username").innerHTML=USER_NAME
     }
 }
 
@@ -37,7 +42,7 @@ clockTick()
 
 timeele=document.querySelector(".time");
 dateele=document.querySelector(".date");
-let endDate = new Date('December 31, 2025 24:00:00');
+let endDate = new Date('December 30, 2025 23:31:00');
 let endTime = endDate.getTime();
 
 
@@ -62,12 +67,13 @@ function countdown() {
         let hrsLeft = Math.floor((remainingTime % oneDay) / oneHr);
         let minsLeft = Math.floor((remainingTime % oneHr) / oneMin);
         let secsLeft = Math.floor((remainingTime % oneMin) / 1000);
-        if(daysLeft>0){
-            timeele.textContent=("0" + daysLeft).slice(-2) + " : " + ("0" + hrsLeft).slice(-2) + " : " +("0"+minsLeft).slice(-2) + " : " + ("0"+secsLeft).slice(-2);
-        }else{
-            timeele.textContent=("0" + hrsLeft).slice(-2) + " : " +("0"+minsLeft).slice(-2) + " : " + ("0"+secsLeft).slice(-2);
+        // if(daysLeft>0){
+        //     timeele.textContent=("0" + daysLeft).slice(-2) + " : " + ("0" + hrsLeft).slice(-2) + " : " +("0"+minsLeft).slice(-2) + " : " + ("0"+secsLeft).slice(-2);
+        // }else{
+        //     timeele.textContent=("0" + hrsLeft).slice(-2) + " : " +("0"+minsLeft).slice(-2) + " : " + ("0"+secsLeft).slice(-2);
 
-        }
+        // }
+        timeele.textContent=("0" + hrsLeft).slice(-2) + " : " +("0"+minsLeft).slice(-2) + " : " + ("0"+secsLeft).slice(-2);
     }
 
 }
