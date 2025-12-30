@@ -77,11 +77,9 @@
             const username = document.getElementById('usernameInput').value
             const outputForm = document.getElementById("output")
             if(username.length > 2){
-                const url = window.location.hostname
-                const newURL = `${url}?name=${username}`
-                GENERATED_URL = newURL
+                GENERATED_URL  = `https://devsrep.github.io/NewYear/?name=${username}`
                 // console.log(newURL)
-                outputForm.value=newURL
+                outputForm.value=GENERATED_URL
                 document.querySelector(".output-cont").style.display="block"
             }else{
                 document.querySelector(".output-cont").style.display="none"
