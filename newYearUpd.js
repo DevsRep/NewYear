@@ -42,7 +42,7 @@ clockTick()
 
 timeele=document.querySelector(".time");
 dateele=document.querySelector(".date");
-let endDate = new Date('December 30, 2025 23:31:00');
+let endDate = new Date('December 31, 2025 24:00:00');
 let endTime = endDate.getTime();
 
 
