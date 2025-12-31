@@ -433,6 +433,11 @@ body{
         font-size: 5vw;
     }
 
+    body{
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
     .animations{
         animation: fadeOut 1s linear 12s forwards;
     }
